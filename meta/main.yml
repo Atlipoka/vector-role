@@ -33,9 +33,9 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-    - name: Centos
-      versions:
-        - all
+  # - name: SomePlatform
+  #   versions:
+  #   - all
   #   - 1.0
   #   - 7
   #   - 99.99
