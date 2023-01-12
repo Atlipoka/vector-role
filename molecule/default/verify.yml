@@ -1,0 +1,25 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Get vector version
+    ansible.builtin.shell: vector --version
+    args:
+      chdir: ./
+    register: version
+  - name: Check version
+    ansible.builtin.assert:
+      that: "'0.25.2' in version.stdout"
+      fail_msg: "You have incorrect vector version"
+      success_msg: "You have correct vector version"
+  - name: Validate vector configurations
+    ansible.builtin.shell: vector validate -C /etc/vector/
+    register: validate
+  - name: Check vector validate status
+    ansible.builtin.assert:
+      that: "'Validated' in validate.stdout"
+      fail_msg: "Your vector configuration invalid"
+      success_msg: "Your vector configuration valid"
