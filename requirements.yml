@@ -1,5 +1,5 @@
 ---
   - src: git@github.com:Atlipoka/vector-role.git
     scm: git
-    version: "v1.0"
+    version: "v1.2.0"
     name: vector-role
